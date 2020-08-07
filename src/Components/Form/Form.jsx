@@ -29,6 +29,12 @@ function Form(props) {
 
 	return (
 		<div className="formWrapper">
+			<h1>LoL K/D/A Flowers</h1>
+			<p>
+				Inspired by Shirley Wu's Film Flowers, this takes the kills and deaths of the player's recent matches,
+				and visualizes them as flowers. The deaths are represented as the larger, blue petals while the kills
+				are the smaller, red petals.
+			</p>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<select type="regionDropdown" name="region" id="region" ref={register()}>
 					<option key="na1" value="na1">
