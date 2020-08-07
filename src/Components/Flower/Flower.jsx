@@ -8,42 +8,25 @@ function Flower(props) {
 
 	const svgRef = useRef();
 
-	const petalPath = 'M 0, 0 C -10, -10 -10, -40 0, -50 C 10, -40 10, -10 0, 0';
+	const petalPathKills = 'M 0, 0 C -9, -9 -9, -20 0, -25 C 9, -20 9, -9 0, 0';
+	const petalPathDeaths = 'M 0, 0 C -30, -10 -10, -40 0, -50 C 10, -40 30, -10 0, 0';
 
 	useEffect(
 		() => {
 			if (props.isLoaded) {
 				const svg = select(svgRef.current);
 
-				var kills = [];
-
-				for (var i in props.detailedMatchStats) {
-					kills.push(props.detailedMatchStats[i].kills);
-				}
-
-				var deaths = [];
-
-				for (var i in props.detailedMatchStats) {
-					deaths.push(props.detailedMatchStats[i].deaths);
-				}
-
-				const killsRange = extent(kills, (d) => d);
-				const deathsRange = extent(deaths, (d) => d);
-
-				// const numPetalScale = scaleLinear()
-				// 	.domain(killsRange) //
-				// 	.range([ 0.25, 1 ]);
-				// const sizeScale = scaleLinear()
-				// 	.domain(deathsRange) //
-				//     .range([ 3, 5, 9 ]);
-
 				const gameIndex = props.gameIndex;
 
 				const flower = {
 					petalSize: props.detailedMatchStats[gameIndex].kills,
-					petals: times(props.detailedMatchStats[gameIndex].deaths, (i) => ({
+					petalsKills: times(props.detailedMatchStats[gameIndex].kills, (i) => ({
+						angle: 360 * i / props.detailedMatchStats[gameIndex].kills,
+						petalPathKills
+					})),
+					petalsDeaths: times(props.detailedMatchStats[gameIndex].deaths, (i) => ({
 						angle: 360 * i / props.detailedMatchStats[gameIndex].deaths,
-						petalPath
+						petalPathDeaths
 					}))
 				};
 
@@ -53,17 +36,43 @@ function Flower(props) {
 					.selectAll('g') //
 					.data([ flower ])
 					.join('g')
-					.attr('transform', (d) => `translate(125, 125)scale(${d.petalSize * 0.2})`);
+					.attr('transform', (d) => `translate(125, 125)scale(2.1)`);
 
 				flowers
-					.selectAll('path') //
-					.data((d) => d.petals)
+					.selectAll('.deaths') //
+					.data((d) => d.petalsDeaths)
 					.join('path')
-					.attr('d', (d) => d.petalPath)
+					.attr('d', (d) => d.petalPathDeaths)
 					.attr('transform', (d) => `rotate(${d.angle})`)
-					.attr('fill', 'none')
-					.attr('stroke', 'black')
-					.attr('stroke-width', '2px');
+					.attr('fill', '#496D8C');
+
+				flowers
+					.selectAll('.deathsOutline') //
+					.data((d) => d.petalsDeaths)
+					.join('path')
+					.attr('d', (d) => d.petalPathDeaths)
+					.attr('transform', (d) => `rotate(${d.angle})`)
+					.attr('stroke', 'white')
+					.attr('stroke-width', '0.5px')
+					.attr('fill', 'none');
+
+				flowers
+					.selectAll('.kills') //
+					.data((d) => d.petalsKills)
+					.join('path')
+					.attr('d', (d) => d.petalPathKills)
+					.attr('transform', (d) => `rotate(${d.angle})`)
+					.attr('fill', '#F2798F');
+
+				flowers
+					.selectAll('.kills') //
+					.data((d) => d.petalsKills)
+					.join('path')
+					.attr('d', (d) => d.petalPathKills)
+					.attr('transform', (d) => `rotate(${d.angle})`)
+					.attr('stroke', 'white')
+					.attr('stroke-width', '0.5px')
+					.attr('fill', 'none');
 			}
 		},
 		[ props.detailedMatchStats, props.isLoaded ]
@@ -71,7 +80,12 @@ function Flower(props) {
 
 	return (
 		<div>
-			<svg width="250" height="250" ref={svgRef} />
+			<svg width="250" height="250" ref={svgRef}>
+				<g className="kills" />
+				<g className="killsOutline" />
+				<g className="deaths" />
+				<g className="deathsOutline" />
+			</svg>
 		</div>
 	);
 }
