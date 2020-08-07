@@ -53,14 +53,17 @@ function Flower(props) {
 					.selectAll('g') //
 					.data([ flower ])
 					.join('g')
-					.attr('transform', (d) => `translate(125, 125)scale(${d.petalSize * 0.1})`);
+					.attr('transform', (d) => `translate(125, 125)scale(${d.petalSize * 0.2})`);
 
 				flowers
 					.selectAll('path') //
 					.data((d) => d.petals)
 					.join('path')
 					.attr('d', (d) => d.petalPath)
-					.attr('transform', (d) => `rotate(${d.angle})`);
+					.attr('transform', (d) => `rotate(${d.angle})`)
+					.attr('fill', 'none')
+					.attr('stroke', 'black')
+					.attr('stroke-width', '2px');
 			}
 		},
 		[ props.detailedMatchStats, props.isLoaded ]
@@ -68,7 +71,6 @@ function Flower(props) {
 
 	return (
 		<div>
-			<h1>Flowers</h1>
 			<svg width="250" height="250" ref={svgRef} />
 		</div>
 	);

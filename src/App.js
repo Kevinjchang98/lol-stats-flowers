@@ -10,6 +10,15 @@ function App() {
 	const [ detailedMatchStats, setDetailedMatchStats ] = useState({});
 	const [ summaryStats, setSummaryStats ] = useState({});
 
+	const indices = [];
+	for (var i = 0; i < 20; i++) {
+		indices.push(i);
+	}
+
+	const flowers = indices.map((i) => (
+		<Flower detailedMatchStats={detailedMatchStats} isLoaded={isLoaded} gameIndex={i} />
+	));
+
 	return (
 		<div className="App">
 			<Form
@@ -19,8 +28,7 @@ function App() {
 				setDetailedMatchStats={setDetailedMatchStats}
 				setSummaryStats={setSummaryStats}
 			/>
-
-			<Flower detailedMatchStats={detailedMatchStats} isLoaded={isLoaded} gameIndex={0} />
+			<div className="flowerContainer">{flowers}</div>
 		</div>
 	);
 }
