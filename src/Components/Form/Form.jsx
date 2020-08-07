@@ -16,10 +16,7 @@ function Form(props) {
 			.then((r) => r.json())
 			.then((data) => {
 				console.log(data);
-				props.setBasicData(data.basic[0]);
-				props.setChampFreqData(data.champion);
 				props.setDetailedMatchStats(data.detailed);
-				props.setSummaryStats(data.summary);
 			})
 			.then(() => {
 				setIsTestData(false);

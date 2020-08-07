@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import { select, scaleLinear, extent } from 'd3';
+import { select } from 'd3';
 import { times } from 'lodash';
 
 function Flower(props) {
@@ -75,7 +75,7 @@ function Flower(props) {
 					.attr('fill', 'none');
 			}
 		},
-		[ props.detailedMatchStats, props.isLoaded ]
+		[ props.detailedMatchStats, props.isLoaded, props.gameIndex ]
 	);
 
 	return (

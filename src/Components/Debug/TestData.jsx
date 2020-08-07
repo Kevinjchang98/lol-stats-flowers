@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './TestData.module.css';
 
 function TestData(props) {
 	function setTestData() {

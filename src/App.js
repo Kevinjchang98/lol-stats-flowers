@@ -5,10 +5,7 @@ import Flower from './Components/Flower/Flower';
 
 function App() {
 	const [ isLoaded, setIsLoaded ] = useState(false);
-	const [ basicData, setBasicData ] = useState({});
-	const [ champFreqData, setChampFreqData ] = useState({});
 	const [ detailedMatchStats, setDetailedMatchStats ] = useState({});
-	const [ summaryStats, setSummaryStats ] = useState({});
 
 	const indices = [];
 	for (var i = 0; i < 20; i++) {
@@ -21,13 +18,7 @@ function App() {
 
 	return (
 		<div className="App">
-			<Form
-				setBasicData={setBasicData}
-				setChampFreqData={setChampFreqData}
-				setIsLoaded={setIsLoaded}
-				setDetailedMatchStats={setDetailedMatchStats}
-				setSummaryStats={setSummaryStats}
-			/>
+			<Form setIsLoaded={setIsLoaded} setDetailedMatchStats={setDetailedMatchStats} />
 			<div className="flowerContainer">{flowers}</div>
 		</div>
 	);
