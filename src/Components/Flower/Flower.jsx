@@ -78,16 +78,20 @@ function Flower(props) {
 		[ props.detailedMatchStats, props.isLoaded, props.gameIndex ]
 	);
 
-	return (
-		<div>
-			<svg width="250" height="250" ref={svgRef}>
-				<g className="kills" />
-				<g className="killsOutline" />
-				<g className="deaths" />
-				<g className="deathsOutline" />
-			</svg>
-		</div>
-	);
+	if (props.isLoaded) {
+		return (
+			<div>
+				<svg width="250" height="250" ref={svgRef}>
+					<g className="kills" />
+					<g className="killsOutline" />
+					<g className="deaths" />
+					<g className="deathsOutline" />
+				</svg>
+			</div>
+		);
+	} else {
+		return null;
+	}
 }
 
 export default Flower;
