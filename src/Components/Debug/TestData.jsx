@@ -2205,15 +2205,10 @@ function TestData(props) {
 	}
 
 	return (
-		<div className={style.wrapper}>
-			<div className={style.secondWrapper}>
-				<h3>Test data</h3>
-				<button onClick={setTestData}>Click here to load test data</button>
-				<p>
-					Using test data:{' '}
-					{props.isTestData ? <p className={style.blue}>True</p> : <p className={style.red}>False</p>}
-				</p>
-			</div>
+		<div>
+			<button type="exampleData" onClick={setTestData}>
+				Example data
+			</button>
 		</div>
 	);
 }

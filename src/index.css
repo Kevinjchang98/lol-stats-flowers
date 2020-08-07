@@ -45,10 +45,9 @@ input[type = text] {
 
 button[type=submit] {
 	width: 7rem;
-	padding: 12px 20px;
+	padding: 11px 20px;
 	margin: 0 0 0 5px;
 	text-decoration: none;
-	height: 5rem;
 
 	border: none;
 	background-color: var(--blue);
@@ -62,12 +61,29 @@ button[type=submit] {
 	cursor: pointer;
 }
 
-select[type=regionDropdown] {
+button[type=exampleData] {
+	width: 10rem;
 	padding: 12px 20px;
+	margin: 0 0 0 5px;
+	text-decoration: none;
+
+	border: none;
+	background-color: var(--blue);
+	color: white;
+	outline: none;
+
+	font-family: Montserrat, Helvetica, sans-serif;
+	font-size: 1rem;
+	font-weight: 800;
+
+	cursor: pointer;
+}
+
+select[type=regionDropdown] {
+	padding: 10px 20px;
 	margin: 0 5px 0 0;
 	text-decoration: none;
 
-	height: 5rem;
 	border: none;
 	background-color: var(--blue);
 	color: white;
