@@ -1,5 +1,7 @@
 .App {
 	text-align: center;
+	max-width: 1500px;
+	margin: 0 auto;
 }
 
 .App-logo {
@@ -35,11 +37,4 @@
 	to {
 		transform: rotate(360deg);
 	}
-}
-
-.flowerContainer {
-	margin: 0 auto;
-	display: flex;
-	flex-flow: row wrap;
-	max-width: 2000px;
 }
