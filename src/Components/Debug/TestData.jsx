@@ -2,59 +2,6 @@ import React from 'react';
 
 function TestData(props) {
 	function setTestData() {
-		props.setBasicData({
-			leagueId: '86095819-693e-3935-a2e9-4529e0736d74',
-			queueType: 'RANKED_SOLO_5x5',
-			tier: 'GRANDMASTER',
-			rank: 'I',
-			summonerId: 'vcoGTSaoMzdIPWPY6cJOMS6b_kAgyTqH_W8pF-mSqp_Z',
-			summonerName: 'BoxBox',
-			leaguePoints: 227,
-			wins: 137,
-			losses: 118,
-			veteran: false,
-			inactive: false,
-			freshBlood: false,
-			hotStreak: false
-		});
-
-		props.setSummaryStats({
-			largestMultiKills: [ 2 ],
-			most_kills: [ 11 ],
-			most_gold_earned: [ 18714 ]
-		});
-
-		props.setChampFreqData([
-			{
-				name: 'Caitlyn',
-				freq: 4
-			},
-			{
-				name: 'Fiora',
-				freq: 33
-			},
-			{
-				name: 'Irelia',
-				freq: 7
-			},
-			{
-				name: 'Jax',
-				freq: 1
-			},
-			{
-				name: 'Lee Sin',
-				freq: 17
-			},
-			{
-				name: 'Riven',
-				freq: 37
-			},
-			{
-				name: 'Vladimir',
-				freq: 1
-			}
-		]);
-
 		props.setDetailedMatchStats([
 			{
 				participantId: 1,
