@@ -34,7 +34,6 @@ a:visited {
 
 .formWrapper {
 	margin: 100px auto;
-	height: 50vh;
 
 	display: flex;
 	flex-direction: column;
