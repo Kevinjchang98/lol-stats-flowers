@@ -31,10 +31,10 @@ function App() {
 	);
 
 	return (
-		<FadeIn className="App">
+		<div className="App">
 			<Form setIsLoaded={setIsLoaded} setDetailedMatchStats={setDetailedMatchStats} />
 			<div ref={flowersRef}>{isLoaded ? <FadeIn className="flowerContainer">{flowers}</FadeIn> : null}</div>
-		</FadeIn>
+		</div>
 	);
 }
 
