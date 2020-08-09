@@ -71,6 +71,10 @@ input[type = text] {
 	max-width: 800px;
 }
 
+input[type=text]::placeholder {
+	color: white;
+}
+
 button[type=submit] {
 	width: 7rem;
 	padding: 10px 20px;

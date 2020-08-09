@@ -46,7 +46,7 @@ function Form(props) {
 					</option>
 				</select>
 
-				<input type="text" name="accountName" ref={register()} />
+				<input type="text" name="accountName" placeholder="Account Name" ref={register()} />
 				<button type="submit">Go</button>
 			</form>
 
