@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './App.css';
 import Form from './Components/Form/Form';
 import Flower from './Components/Flower/Flower';
+import FadeIn from 'react-fade-in';
 
 function App() {
 	const [ isLoaded, setIsLoaded ] = useState(false);
@@ -16,11 +17,24 @@ function App() {
 		<Flower detailedMatchStats={detailedMatchStats} isLoaded={isLoaded} gameIndex={i} />
 	));
 
+	const flowersRef = useRef();
+
+	useEffect(
+		() => {
+			if (isLoaded) {
+				flowersRef.current.scrollIntoView({
+					behavior: 'smooth'
+				});
+			}
+		},
+		[ isLoaded ]
+	);
+
 	return (
-		<div className="App">
+		<FadeIn className="App">
 			<Form setIsLoaded={setIsLoaded} setDetailedMatchStats={setDetailedMatchStats} />
-			<div className="flowerContainer">{flowers}</div>
-		</div>
+			<div ref={flowersRef}>{isLoaded ? <FadeIn className="flowerContainer">{flowers}</FadeIn> : null}</div>
+		</FadeIn>
 	);
 }
 
