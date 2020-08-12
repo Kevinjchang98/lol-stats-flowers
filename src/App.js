@@ -9,7 +9,7 @@ function App() {
 	const [ detailedMatchStats, setDetailedMatchStats ] = useState({});
 
 	const indices = [];
-	for (var i = 0; i < 20; i++) {
+	for (var i = 0; i < 50; i++) {
 		indices.push(i);
 	}
 
